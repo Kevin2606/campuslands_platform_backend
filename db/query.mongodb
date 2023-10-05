@@ -1,0 +1,174 @@
+use("db_eduplatform");
+db.createCollection("usuarios", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            properties: {
+                token: {
+                    bsonType: "string",
+                    description: "Token de autenticación",
+                },
+                token_refresh: {
+                    bsonType: "string",
+                    description: "Token de refresco",
+                },
+            },
+        },
+    },
+});
+
+db.createCollection("comentarios", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            properties: {
+                id_padre: {
+                    bsonType: "string",
+                    description: "Id del padre",
+                },
+                autor: {
+                    bsonType: "object",
+                    description: "Autor del comentario",
+                    properties: {
+                        fullname: {
+                            bsonType: "string",
+                            description: "Nombre completo del autor",
+                        },
+                        avatar: {
+                            bsonType: "string",
+                            description: "Avatar del autor",
+                        },
+                    },
+                },
+                comentario: {
+                    bsonType: "string",
+                    description: "Comentario",
+                },
+                createdAt: {
+                    bsonType: "string",
+                    description: "Fecha de creación",
+                },
+            },
+        },
+    },
+});
+
+db.createCollection("blogs", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            properties: {
+                title: {
+                    bsonType: "string",
+                    description: "Título del blog",
+                },
+                description: {
+                    bsonType: "string",
+                    description: "Descripción del blog",
+                },
+                imageUrl: {
+                    bsonType: "string",
+                    description: "Imagen del blog",
+                },
+                content: {
+                    bsonType: "string",
+                    description: "Contenido del blog",
+                },
+                autor: {
+                    bsonType: "object",
+                    description: "Autor del blog",
+                    properties: {
+                        fullname: {
+                            bsonType: "string",
+                            description: "Nombre completo del autor",
+                        },
+                        avatar: {
+                            bsonType: "string",
+                            description: "Avatar del autor",
+                        },
+                        roles: {
+                            bsonType: "array",
+                            description: "Roles del autor",
+                            items: {
+                                bsonType: "string",
+                                description: "Rol del autor",
+                            },
+                        },
+                    },
+                },
+                createdAt: {
+                    bsonType: "string",
+                    description: "Fecha de creación",
+                },
+                imageBackground: {
+                    bsonType: "string",
+                    description: "Imagen de fondo",
+                },
+            },
+        },
+    },
+});
+
+db.createCollection("cursos", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            properties: {
+                nameCourse: {
+                    bsonType: "string",
+                    description: "Nombre del curso",
+                },
+                imagenCourse: {
+                    bsonType: "string",
+                    description: "Imagen del curso",
+                },
+                titleCourse: {
+                    bsonType: "string",
+                    description: "Título del curso",
+                },
+                durationCourse: {
+                    bsonType: "string",
+                    description: "Duración del curso",
+                },
+            },
+        },
+    },
+});
+
+db.createCollection("videos", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            properties: {
+                nameCourse: {
+                    bsonType: "string",
+                    description: "Nombre del curso",
+                },
+                sectionNumber: {
+                    bsonType: "string",
+                    description: "Número de sección",
+                },
+                nameVideo: {
+                    bsonType: "string",
+                    description: "Nombre del video",
+                },
+                urlVideo: {
+                    bsonType: "string",
+                    description: "Url del video",
+                },
+                durationVideo: {
+                    bsonType: "string",
+                    description: "Duración del video",
+                },
+                titleSection: {
+                    bsonType: "string",
+                    description: "Título de la sección",
+                },
+                title: {
+                    bsonType: "string",
+                    description: "Título del video",
+                },
+            },
+        },
+    },
+});
